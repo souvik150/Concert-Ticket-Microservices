@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: auth
-          image: souvik150/auth
+          image: asia.gcr.io/hidden-digit-339515/auth
 ---
 apiVersion: v1
 kind: Service
