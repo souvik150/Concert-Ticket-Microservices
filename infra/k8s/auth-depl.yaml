@@ -14,7 +14,13 @@ spec:
     spec:
       containers:
         - name: auth
-          image: asia.gcr.io/hidden-digit-339515/auth
+          image: souvik150/ticket-dev-auth
+          env:
+            - name: JWT_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: jwt-secret
+                  key: JWT_KEY
 ---
 apiVersion: v1
 kind: Service

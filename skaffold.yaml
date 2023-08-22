@@ -6,12 +6,12 @@ deploy:
     manifests:
       - ./infra/k8s/*
 build:
-#  local:
-#    push: false
-  googleCloudBuild:
-    projectId: hidden-digit-339515
+  local:
+    push: false
+#  googleCloudBuild:
+#    projectId: hidden-digit-339515
   artifacts:
-    - image: asia.gcr.io/hidden-digit-339515/auth
+    - image: souvik150/ticket-dev-auth
       context: auth
       docker:
         dockerfile: Dockerfile
