@@ -1,4 +1,3 @@
-# nonk8s
 apiVersion: skaffold/v2alpha3
 kind: Config
 deploy:
@@ -8,11 +7,25 @@ deploy:
 build:
   local:
     push: false
-#  googleCloudBuild:
-#    projectId: hidden-digit-339515
   artifacts:
     - image: souvik150/ticket-dev-auth
       context: auth
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: "src/**/*.ts"
+            dest: .
+    - image: souvik150/ticket-dev-client
+      context: client
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: '**/*.js'
+            dest: .
+    - image: souvik150/ticket-dev-tickets
+      context: tickets
       docker:
         dockerfile: Dockerfile
       sync:

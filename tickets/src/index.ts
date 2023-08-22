@@ -5,8 +5,9 @@ const start = async () => {
     if (!process.env.JWT_KEY){
         throw new Error("JWT_SECRET not defined")
     }
+
     try{
-        await mongoose.connect('mongodb://auth-mongo-srv:27017/auth');
+        await mongoose.connect('mongodb://auth-mongo-srv:27017/tickets');
         console.log("Connected to MongoDB")
     } catch (err){
         console.error(err);
