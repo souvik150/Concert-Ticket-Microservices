@@ -18,6 +18,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@rallycoding/common": "^1.0.12",
     "@souvik150/tickets-common": "^1.0.10",
     "@types/cookie-session": "^2.0.44",
     "@types/express": "^4.17.17",
@@ -30,6 +31,7 @@
     "mongoose": "^7.1.0",
     "mongoose-update-if-current": "^1.4.0",
     "node-nats-streaming": "^0.3.2",
+    "stripe": "^13.3.0",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.0.4"
   },

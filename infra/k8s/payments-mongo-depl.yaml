@@ -1,23 +1,31 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: Title
-  labels:
-    app: Title
+  name: payments-mongo-depl
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: Title
+      app: payments-mongo
   template:
     metadata:
-      name: Title
+      name: payments-mongo
       labels:
-        app: Title
+        app: payments-mongo
     spec:
       containers:
-        - name: Title
-          image: Image
-          imagePullPolicy: IfNotPresent
-      restartPolicy: Always
-      
+        - name: payments-mongo
+          image: mongo
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: payments-mongo-srv
+spec:
+  selector:
+    app: payments-mongo
+  ports:
+    - name: db
+      protocol: TCP
+      port: 27017
+      targetPort: 27017
